@@ -4,21 +4,14 @@ RUN npm install -g npm@9.5.1
 RUN npm install -g @angular/cli
 #RUN npm install @angular-devkit/build-angular
 COPY package*.json ./
-#RUN npm install @angular-devkit/build-angular --force --save
-#RUN sleep 500
-#RUN npm install -g @angular-devkit/build-angular --force --save
-#RUN npm install --save-dev @angular-devkit/build-angular
-#Las dos lineas de debajo son para q no toque la polla, no se pq pero van
 RUN npm install
-RUN ng new app-test 
-RUN cd app-test
+#RUN ng new app-test
+#RUN cd app-test
 #COPY package*.json ./
 #COPY . ./
-RUN npm install
+#RUN npm install
 #RUN sleep 500
 #RUN ng build
 #CMD ["npm", "start"]
 EXPOSE 4200
-#CMD [ "sleep","500" ]
-#CMD [ "/bin/bash","script.sh" ]
 CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
