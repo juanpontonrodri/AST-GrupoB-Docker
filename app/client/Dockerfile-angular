@@ -2,9 +2,10 @@ FROM node:18.12
 WORKDIR /app/client
 RUN npm install -g npm@9.5.1
 RUN npm install -g @angular/cli
+COPY scriptnpm.sh ./
 #RUN npm install @angular-devkit/build-angular
-COPY package*.json ./
-RUN npm install
+#COPY package*.json ./
+#RUN npm install
 #RUN ng new app-test
 #RUN cd app-test
 #COPY package*.json ./
@@ -14,4 +15,4 @@ RUN npm install
 #RUN ng build
 #CMD ["npm", "start"]
 EXPOSE 4200
-CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
+CMD ["./start-app.sh"]
