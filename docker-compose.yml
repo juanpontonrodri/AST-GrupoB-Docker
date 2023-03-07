@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  mongo:
+    image: mongo:4.4
+    container_name: mongodb
+    restart: always
+    networks:
+      - MEAN
+    ports:
+      - "27017:27017"
+
+  express:
+    build:
+      context: ./app/api
+      dockerfile: Dockerfile-express
+    container_name: express
+    restart: always
+    networks:
+      - MEAN
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app/api:/app/api
+    depends_on:
+      - mongo
+
+
+networks:
+ MEAN:
+  driver: bridge

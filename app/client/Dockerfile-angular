@@ -1,0 +1,14 @@
+FROM node:18.12
+WORKDIR /app/client
+RUN npm install -g npm@9.5.1
+RUN npm install -g @angular/cli
+RUN ng new app-test
+RUN cd app-test
+#COPY package*.json ./
+#COPY . ./
+#RUN npm install
+#RUN sleep 500
+#RUN ng build
+#CMD ["npm", "start"]
+EXPOSE 4200
+CMD [ "ng","serve" ]
