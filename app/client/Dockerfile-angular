@@ -15,4 +15,4 @@ COPY scriptnpm.sh ./
 #RUN ng build
 #CMD ["npm", "start"]
 EXPOSE 4200
-CMD ["./start-app.sh"]
+CMD ["./scriptnpm.sh"]
