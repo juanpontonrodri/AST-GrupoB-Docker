@@ -8,10 +8,10 @@ var pokemonSchema = new mongoose.Schema({
         type: String,
         enum: ["Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Kalos", "Alola", "Galar"]
     },
-    tipo: {
+    tipo: [{
         type: String,
-        enum: ["Normal", "Agua", "Fuego", "Planta", "Electrico", "Hielo", "Lucha", "Veneno", "Tierra", "Volador", "Psiquico", "Bicho", "Roca", "Fantasma", "Dragon", "Siniestro", "Acero", "Hada"]
-    },
+        enum: ["Normal", "Agua", "Fuego", "Planta", "Eléctrico", "Hielo", "Lucha", "Veneno", "Tierra", "Volador", "Psiquico", "Bicho", "Roca", "Fantasma", "Dragón", "Siniestro", "Acero", "Hada"]
+    }],
     evolucion: { type: Boolean },
     legendario: { type: Boolean },
     cantidad: { type: Number },

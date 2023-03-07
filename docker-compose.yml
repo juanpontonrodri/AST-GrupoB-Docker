@@ -2,30 +2,36 @@ version: "3.7"
 
 services:
   mongo:
-    image: mongo:4.4
+    image: mongo:4.4.18
     container_name: mongodb
+    network_mode: host
     restart: always
-    networks:
-      - MEAN
-    ports:
-      - "27017:27017"
+    #ports de mongo
 
   express:
     build:
       context: ./app/api
       dockerfile: Dockerfile-express
     container_name: express
+    network_mode: host
     restart: always
-    networks:
-      - MEAN
-    ports:
-      - "3000:3000"
+    #ports:
+    #  - "3000:3000"
     volumes:
       - ./app/api:/app/api
     depends_on:
       - mongo
 
-
-networks:
- MEAN:
-  driver: bridge
+  angular:
+    build:
+      context: ./app/client
+      dockerfile: Dockerfile-angular
+    container_name: angular
+    network_mode: host
+    restart: always
+    #ports:
+    #  - "4200:4200"
+    volumes:
+      - ./app/client:/app/client
+    depends_on:
+      - express

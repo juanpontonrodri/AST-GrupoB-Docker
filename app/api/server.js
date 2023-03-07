@@ -1,5 +1,7 @@
 // Requerimos el paquete mongoose para conectarnos a una base de datos MongoDB.
 const mongoose = require("mongoose");
+const Pokemon = require("./models/pokemon");
+
 
 // Configuramos la opción "strictQuery" de mongoose para que sea más estricto en el manejo de las consultas a la base de datos.
 mongoose.set("strictQuery", true);
@@ -9,7 +11,9 @@ mongoose.connect("mongodb://localhost/pokemon", function (err, res) {
     if (err) {
         console.log("Error conectando a la BD" + err);
     }
-    console.log(`connected to database`);
+    else {
+        console.log(`connected to database`);
+    }
 });
 
 // Requerimos el paquete express para crear una aplicación web.
@@ -46,8 +50,9 @@ app.use((req, res, next) => {
 
 // Definimos una ruta básica que solo devuelve un mensaje de bienvenida.
 router.get("/", function (req, res) {
-    res.send("Holi6")
+    res.send("Holi")
 });
+
 
 // Agregamos la ruta definida anteriormente a nuestra aplicación.
 app.use(router);
@@ -59,9 +64,11 @@ pokemon.route('/pokemon')
     .get(pokemonroute.findAllpokemon) // Devuelve todos los pokemon.
     .post(pokemonroute.addpokemon); // Agrega un nuevo pokemon.
 
+
+
 pokemon.route('/pokemon/:id')
     .get(pokemonroute.findById) // Devuelve un pokemon por su ID.
-    .post(pokemonroute.updatepokemon) // Actualiza un pokemon existente.
+    .put(pokemonroute.updatepokemon) // Actualiza un pokemon existente.
     .delete(pokemonroute.deletePokemon); // Elimina un pokemon existente.
 
 // Agregamos las rutas definidas anteriormente a nuestra aplicación.
