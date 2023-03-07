@@ -24,6 +24,7 @@ fs.readFile('data.json', 'utf8', (err, data) => {
         });
     });
 
+    
     req.on('error', (error) => {
         console.error(error);
     });
