@@ -3,7 +3,7 @@ WORKDIR /app/api
 COPY package*.json ./
 RUN npm install -g npm@9.5.1
 RUN npm install
-COPY . ./
+#COPY . ./
 EXPOSE 3000
 #RUN sleep 500
 CMD ["npm", "run", "DevStart"]
