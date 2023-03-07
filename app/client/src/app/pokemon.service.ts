@@ -12,14 +12,16 @@ export class PokemonService {
 
   constructor(private webService: WebService) { }
 
+
   getPokemons() {
     return this.webService.get('api/pokemon');
   }
-  createPokemon(nombre: String, numero: Number, generacion: Number, region: string, tipo: string, evolucion: boolean, legendario: boolean, cantidad: number, precio: number) {
+  createPokemon(nombre: String, numero: Number, generacion: Number, region: string, tipo: [string, string], evolucion: boolean, legendario: boolean, cantidad: number, precio: number) {
 
     return this.webService.post('api/pokemon', { nombre, numero, generacion, region, tipo, evolucion, legendario, cantidad, precio })
   }
   deletePokemon(_id: string) {
     return this.webService.delete(`api/pokemon/${_id}`);
   }
+
 }
