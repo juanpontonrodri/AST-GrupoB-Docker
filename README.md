@@ -3,11 +3,12 @@ Para desactivar mongod:sudo systemctl stop mongod
 Para activar mongod:sudo systemctl start mongod
 Para comprobar su estado: sudo systemctl status mongod
 para levantar: docker-compose up
-para eliminar contenedores: docker-compose down 
+para eliminar contenedores: docker-compose down
 
 Cargar pokemons en base de datos: node cargarBD.js
 
 Falta:
+-Al poner añadir q desaparaezca los demas
 -Definir si todos los cmapos son obligatorios (SI CONSEGUIMOS HACER Q NO SEAN OBLIGATORIOS HAY Q ELMINAR EL CAMPO DE NINGUN TIPO EN EL SEGUNDO TIPO POKEMON) y si hay algo por defecto(mirar proyecto q piden)
 -La opcion de modificar
 -Organizar los botones y las imagenes para que se adapten al tamaño de la pantalla y se ordenen los pokemon
