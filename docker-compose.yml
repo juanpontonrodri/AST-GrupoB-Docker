@@ -7,7 +7,7 @@ services:
     network_mode: host
     restart: always
     #ports de mongo
-
+    
   express:
     build:
       context: ./app/api
@@ -21,6 +21,7 @@ services:
       - ./app/api:/app/api
     depends_on:
       - mongo
+    user: "1000:1000"
 
   angular:
     build:
@@ -35,3 +36,4 @@ services:
       - ./app/client:/app/client
     depends_on:
       - express
+    user: "1000:1000"
